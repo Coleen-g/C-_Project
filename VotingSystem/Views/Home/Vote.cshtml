@@ -1,0 +1,49 @@
+﻿@model IEnumerable<VotingSystem.Models.Candidates>
+@{
+    var votedPositions = ViewBag.VotedPositions as List<string>;
+}
+
+<div class="container mt-5">
+    <h1 class="mb-4 text-primary">Cast Your Vote</h1>
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success">@TempData["Message"]</div>
+    }
+
+    @foreach (var group in Model.GroupBy(c => c.Position))
+    {
+        <h3 class="mt-4">@group.Key</h3>
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Party</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var candidate in group)
+                {
+                    <tr>
+                        <td>@candidate.Name</td>
+                        <td>@candidate.Party</td>
+                        <td>
+                            @if (votedPositions.Contains(candidate.Position))
+                            {
+                                <button class="btn btn-secondary" disabled>Already Voted</button>
+                            }
+                            else
+                            {
+                                <form asp-action="Vote" method="post" style="display:inline;">
+                                    <input type="hidden" name="candidateId" value="@candidate.Id" />
+                                    <button type="submit" class="btn btn-success">Vote</button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

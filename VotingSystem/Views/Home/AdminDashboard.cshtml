@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+    var username = Context.Session.GetString("Username");
+}
+
+<div class="container mt-5">
+    <h1 class="text-primary mb-4">Welcome, @username!</h1>
+
+    <div class="row">
+        <!-- Add Candidate -->
+        <div class="col-md-4 mb-3">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Add Candidate</h5>
+                    <p class="card-text">Add a new candidate to the election system.</p>
+                    <a class="btn btn-success" asp-action="AddCandidate" asp-controller="Home">Go</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- View Candidates -->
+        <div class="col-md-4 mb-3">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">View Candidates</h5>
+                    <p class="card-text">See the list of all candidates.</p>
+                    <a class="btn btn-primary" asp-action="Candidates" asp-controller="Home">Go</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logout -->
+        <div class="col-md-4 mb-3">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Logout</h5>
+                    <p class="card-text">Log out of the admin account.</p>
+                    <a class="btn btn-danger" asp-action="Logout" asp-controller="Home">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<VotingSystem.Models.Candidates>
+
+<div class="container mt-5">
+    <h1 class="mb-4 text-primary">Candidates</h1>
+
+    <a class="btn btn-success mb-3" asp-action="AddCandidate">Add New Candidate</a>
+
+    @* Group candidates by Position *@
+    @foreach (var group in Model.GroupBy(c => c.Position))
+    {
+        <h3 class="mt-4">@group.Key</h3>
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Party</th>
+                    <th>Votes</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var candidate in group)
+                {
+                    <tr>
+                        <td>@candidate.Id</td>
+                        <td>@candidate.Name</td>
+                        <td>@candidate.Party</td>
+                        <td>@candidate.Votes</td>
+                        <td>
+                            <a class="btn btn-sm btn-warning" asp-action="EditCandidate" asp-route-id="@candidate.Id">Edit</a>
+                            <a class="btn btn-sm btn-danger" asp-action="DeleteCandidate" asp-route-id="@candidate.Id"
+                               onclick="return confirm('Are you sure you want to delete this candidate?');">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

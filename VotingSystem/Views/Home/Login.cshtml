@@ -1,0 +1,32 @@
+﻿@model VotingSystem.Models.User  // Optional if you have a User model
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container mt-5" style="max-width: 400px;">
+    <h2 class="text-center mb-4">Login</h2>
+
+    @* Display error message if login fails *@
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.Error
+        </div>
+    }
+
+    <form asp-action="Login" method="post">
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" name="username" class="form-control" id="username" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" id="password" required />
+        </div>
+
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+    </form>
+</div>
