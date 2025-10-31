@@ -1,0 +1,146 @@
+﻿@model VotingSystem.Models.Candidates
+
+@{
+    ViewData["Title"] = "Edit Candidate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    /* ======= GLOBAL PAGE STYLING ======= */
+    .edit-page {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .card {
+        border: none;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: 0.3s ease;
+    }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
+    .card-header {
+        background: linear-gradient(135deg, #ffb700, #ffcc33);
+        border: none;
+        color: #222;
+        font-weight: 700;
+        font-size: 1.5rem;
+        letter-spacing: 0.5px;
+        padding: 1.2rem;
+    }
+
+    /* ======= FORM ELEMENTS ======= */
+    .form-label {
+        color: #343a40;
+        font-weight: 600;
+        font-size: 1rem;
+    }
+
+    .form-control {
+        border: 2px solid #e3e6ea;
+        border-radius: 0.75rem;
+        padding: 0.9rem 1rem;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.15);
+        }
+
+        .form-control::placeholder {
+            color: #adb5bd;
+            font-size: 0.95rem;
+        }
+
+    /* ======= BUTTON STYLES ======= */
+    .btn {
+        border-radius: 0.75rem;
+        font-weight: 600;
+        padding: 0.75rem 1.8rem;
+    }
+
+    .btn-warning {
+        background: linear-gradient(135deg, #ffc107, #ffdb4d);
+        border: none;
+        color: #222;
+        transition: all 0.3s ease;
+    }
+
+        .btn-warning:hover {
+            background: linear-gradient(135deg, #ffca2c, #ffe27a);
+            transform: translateY(-2px);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+
+    .btn-outline-secondary {
+        border-width: 2px;
+        transition: 0.3s;
+    }
+
+        .btn-outline-secondary:hover {
+            background-color: #6c757d;
+            color: #fff;
+        }
+
+    /* ======= VALIDATION TEXT ======= */
+    .text-danger {
+        font-size: 0.9rem;
+        margin-top: 0.3rem;
+    }
+</style>
+
+<div class="main-content p-4">
+    <div class="edit-page container mt-5">
+        <div class="card shadow-sm border-0">
+            <div class="card-header text-center">
+                <i class="bi bi-pencil-square me-2"></i> Edit Candidate Information
+            </div>
+
+            <div class="card-body p-5 bg-white">
+                <form asp-action="EditCandidate" method="post" class="needs-validation" novalidate>
+                    <input type="hidden" asp-for="Id" />
+
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label asp-for="Name" class="form-label">Candidate Name</label>
+                            <input asp-for="Name" class="form-control shadow-sm" placeholder="Enter candidate's full name" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="Party" class="form-label">Party</label>
+                            <input asp-for="Party" class="form-control shadow-sm" placeholder="Enter party name" />
+                            <span asp-validation-for="Party" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="Position" class="form-label">Position</label>
+                        <input asp-for="Position" class="form-control shadow-sm" placeholder="Enter position" />
+                        <span asp-validation-for="Position" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-flex justify-content-end mt-5">
+                        <button type="submit" class="btn btn-warning shadow-sm me-2">
+                            <i class="bi bi-save-fill me-1"></i> Update
+                        </button>
+                        <a asp-action="Candidates" class="btn btn-outline-secondary shadow-sm">
+                            <i class="bi bi-x-circle me-1"></i> Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

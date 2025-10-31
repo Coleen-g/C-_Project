@@ -1,0 +1,322 @@
+﻿/* ===============================
+   GLOBAL STYLES
+================================*/
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #f8fbff, #dfeaff);
+}
+
+h1, h2, h3, h4, h5 {
+    color: #003b8e;
+}
+
+footer {
+    background: #f8f9fa;
+    color: #6c757d;
+}
+
+/* Button Hover Animation */
+.btn {
+    transition: all 0.3s ease;
+}
+
+    .btn:hover {
+        transform: scale(1.05);
+    }
+
+/* ===============================
+   HERO SECTION (Home Page)
+================================*/
+.hero-section {
+    position: relative;
+    background: url('../images/vote1.jpg') no-repeat center center/cover;
+    height: 100vh; /* Full screen height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #003b8e;
+    overflow: hidden;
+}
+
+    /* Light overlay for readability */
+    .hero-section .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9));
+        z-index: 1;
+    }
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    padding: 20px;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #003b8e;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: #4a5c8a;
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+.btn-outline-primary {
+    border-color: #007bff;
+    color: #007bff;
+    background-color: transparent;
+}
+
+    .btn-outline-primary:hover {
+        background-color: #007bff;
+        color: #fff;
+    }
+/* ✅ Navbar Login Button Style */
+.btn-login-nav {
+    background-color: #007bff;
+    color: #fff !important;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+    .btn-login-nav:hover {
+        background-color: #0056b3;
+        color: #fff !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 86, 179, 0.4);
+    }
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+}
+
+/* ===============================
+   INFO SECTION
+================================*/
+.info-section {
+    background-color: #f8f9fa;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+    .info-section p {
+        font-size: 1rem;
+        color: #6c757d;
+    }
+
+/* ===============================
+   ANIMATIONS
+================================*/
+.illustration img {
+    width: 100%;
+    max-width: 500px;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* ===============================
+   VOTE SECTION (Optional)
+================================*/
+.vote-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    text-align: center;
+    flex-direction: column;
+}
+
+.vote-box {
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+    padding: 60px 100px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 🔹 Dashboard Layout */
+.admin-dashboard {
+    min-height: 100vh;
+    background: linear-gradient(to right, #f8f9fa, #eef3f7);
+    border-radius: 10px;
+    padding-top: 50px;
+}
+
+/* 🔹 Header */
+.dashboard-header h1 {
+    font-size: 2.5rem;
+}
+
+.dashboard-header p {
+    color: #6c757d;
+}
+
+/* 🔹 Card Styling */
+.dashboard-card {
+    transition: all 0.3s ease-in-out;
+    border-radius: 15px;
+    background-color: #fff;
+}
+
+    .dashboard-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+
+/* 🔹 Icon Style */
+.icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    font-size: 2rem;
+}
+
+/* 🔹 Buttons */
+.dashboard-card .btn {
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+    .dashboard-card .btn:hover {
+        transform: scale(1.05);
+    }
+
+
+/* 🔹 Add Candidate Page Styling */
+.add-candidate {
+    background: linear-gradient(135deg, #f8fdf9, #eef9f3);
+    min-height: 90vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+    /* 🔹 Card Styling */
+    .add-candidate .card {
+        transition: all 0.3s ease;
+    }
+
+        .add-candidate .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+    /* 🔹 Input Focus Effect */
+    .add-candidate .form-control:focus,
+    .add-candidate .form-select:focus {
+        border-color: #198754;
+        box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25);
+    }
+
+    /* 🔹 Buttons */
+    .add-candidate .btn-success {
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+    }
+
+        .add-candidate .btn-success:hover {
+            background-color: #157347;
+            transform: scale(1.05);
+        }
+
+    .add-candidate .btn-outline-secondary:hover {
+        background-color: #6c757d;
+        color: white;
+        transform: scale(1.05);
+    }
+
+
+/* 🔹 Candidates Page Styling */
+.candidates-page {
+    background: linear-gradient(135deg, #f9fbfd, #eef3f9);
+    min-height: 90vh;
+}
+
+    /* 🔹 Card Header */
+    .candidates-page .card-header {
+        background: linear-gradient(135deg, #0d6efd, #3b82f6) !important;
+        border: none;
+    }
+
+/* 🔹 Table Row Hover */
+.table-row-hover:hover {
+    background-color: #f5f9ff;
+    transition: background-color 0.3s ease;
+}
+
+/* 🔹 Buttons */
+.candidates-page .btn-success {
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+    .candidates-page .btn-success:hover {
+        background-color: #198754;
+        transform: translateY(-2px);
+    }
+
+.candidates-page .btn-warning:hover {
+    background-color: #e0a800;
+    transform: scale(1.05);
+}
+
+.candidates-page .btn-danger:hover {
+    background-color: #bb2d3b;
+    transform: scale(1.05);
+}

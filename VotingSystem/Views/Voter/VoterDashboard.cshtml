@@ -1,0 +1,75 @@
+﻿@model VotingSystem.Models.Voter
+@{
+    ViewData["Title"] = "Voter Dashboard";
+    Layout = "~/Views/Shared/_VoterLayout.cshtml";
+}
+
+<div class="card shadow-lg border-0 rounded-4">
+    <div class="card-header bg-success bg-gradient text-white text-center rounded-top-4 py-3">
+        <h2 class="fw-bold mb-0">
+            <i class="bi bi-person-check-fill me-2"></i>Voter Dashboard
+        </h2>
+    </div>
+
+    <div class="card-body p-5">
+        <div class="alert alert-success shadow-sm d-flex align-items-center">
+            <i class="bi bi-check-circle-fill fs-4 me-3"></i>
+            <div>
+                <h5 class="fw-bold mb-1">Welcome, @Model.FullName!</h5>
+                <p class="mb-0">You are logged in and eligible to participate in the election.</p>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6 mb-4">
+                <div class="card border-0 shadow-sm h-100 rounded-3">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-primary mb-3">
+                            <i class="bi bi-info-circle-fill me-2"></i>Election Information
+                        </h5>
+                        <ul class="list-unstyled mb-0">
+                            <li><strong>Election Title:</strong> TMC Student Council Election 2025</li>
+                            <li><strong>Voting Period:</strong> October 20 - October 25, 2025</li>
+                            <li><strong>Status:</strong> <span class="badge bg-success">Ongoing</span></li>
+                            <li><strong>Deadline:</strong> October 25, 2025 (11:59 PM)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="card border-0 shadow-sm h-100 rounded-3">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-primary mb-3">
+                            <i class="bi bi-person-badge-fill me-2"></i>Your Voter Details
+                        </h5>
+                        <ul class="list-unstyled mb-0">
+                            <li><strong>Voter ID:</strong> @Model.VoterCode</li>
+                            <li><strong>Name:</strong> @Model.FullName</li>
+                            <li>
+                                <strong>Status:</strong>
+                                @if (Model.HasVoted)
+                                {
+                                    <span class="badge bg-success">Voted</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-warning text-dark">Not Yet Voted</span>
+                                }
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <h4 class="fw-bold text-secondary mb-3">Ready to Cast Your Vote?</h4>
+            <p class="text-muted mb-4">Make sure to review all candidates carefully before submitting your vote. Once submitted, votes cannot be changed.</p>
+
+            <a asp-controller="Voter" asp-action="Vote" class="btn btn-lg btn-success px-5 shadow-sm">
+                <i class="bi bi-box-arrow-in-right me-2"></i>Vote Now
+            </a>
+        </div>
+    </div>
+</div>

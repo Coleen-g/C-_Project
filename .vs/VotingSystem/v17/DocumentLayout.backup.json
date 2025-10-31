@@ -1,0 +1,720 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Jeff\\VotingSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\views\\admin\\results.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\views\\admin\\results.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\models\\candidates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\models\\candidates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\models\\admindashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\models\\admindashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\models\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\models\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\controllers\\votercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\controllers\\votercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\views\\voter\\vote.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\views\\voter\\vote.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\views\\voter\\results.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\views\\voter\\results.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\views\\admin\\admindashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\views\\admin\\admindashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\views\\shared\\_voterlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\views\\shared\\_voterlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\views\\voter\\voterdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\views\\voter\\voterdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\views\\admin\\editcandidate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\views\\admin\\editcandidate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\views\\admin\\candidates.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\views\\admin\\candidates.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\views\\admin\\addcandidate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\views\\admin\\addcandidate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Migrations\\20251031124308_AddUserLogs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:VotingSystem\\Migrations\\20251031124308_AddUserLogs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\views\\admin\\userlogs.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\views\\admin\\userlogs.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\models\\votingdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\models\\votingdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\models\\userlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\models\\userlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\views\\home\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\views\\home\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\models\\vote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\models\\vote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\models\\voter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\models\\voter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\votingsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\votingsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jeff\\VotingSystem\\Models\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jeff\\VotingSystem\\Pages\\Login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Pages\\Login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jeff\\VotingSystem\\Pages\\Login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Pages\\Login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\migrations\\20251013144444_addpositiontovotes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\migrations\\20251013144444_addpositiontovotes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\migrations\\20251013143949_addvotes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\migrations\\20251013143949_addvotes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\migrations\\20251013141241_addpositions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\migrations\\20251013141241_addpositions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\migrations\\20251013135324_addcandidates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\migrations\\20251013135324_addcandidates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\migrations\\20251013122227_initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\migrations\\20251013122227_initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|c:\\users\\jeff\\votingsystem\\votingsystem\\migrations\\20251013115954_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DEFB98B-0604-44DA-AB98-29546C22C254}|VotingSystem\\VotingSystem.csproj|solutionrelative:votingsystem\\migrations\\20251013115954_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AdminDashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Admin\\AdminDashboard.cshtml",
+              "RelativeDocumentMoniker": "VotingSystem\\Views\\Admin\\AdminDashboard.cshtml",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Admin\\AdminDashboard.cshtml",
+              "RelativeToolTip": "VotingSystem\\Views\\Admin\\AdminDashboard.cshtml",
+              "ViewState": "AgIAAJwAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-13T11:42:45.493Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Candidates.cs",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Models\\Candidates.cs",
+              "RelativeDocumentMoniker": "VotingSystem\\Models\\Candidates.cs",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Models\\Candidates.cs",
+              "RelativeToolTip": "VotingSystem\\Models\\Candidates.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T13:34:08.483Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "VoterDashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Voter\\VoterDashboard.cshtml",
+              "RelativeDocumentMoniker": "VotingSystem\\Views\\Voter\\VoterDashboard.cshtml",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Voter\\VoterDashboard.cshtml",
+              "RelativeToolTip": "VotingSystem\\Views\\Voter\\VoterDashboard.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-13T11:43:13.579Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "VoterController.cs",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Controllers\\VoterController.cs",
+              "RelativeDocumentMoniker": "VotingSystem\\Controllers\\VoterController.cs",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Controllers\\VoterController.cs",
+              "RelativeToolTip": "VotingSystem\\Controllers\\VoterController.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAcwGIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T11:04:11.04Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Position.cs",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Models\\Position.cs",
+              "RelativeDocumentMoniker": "VotingSystem\\Models\\Position.cs",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Models\\Position.cs",
+              "RelativeToolTip": "VotingSystem\\Models\\Position.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T14:08:07.214Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Results.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Admin\\Results.cshtml",
+              "RelativeDocumentMoniker": "VotingSystem\\Views\\Admin\\Results.cshtml",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Admin\\Results.cshtml",
+              "RelativeToolTip": "VotingSystem\\Views\\Admin\\Results.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-31T10:26:46.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdminDashboardViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Models\\AdminDashboardViewModel.cs",
+              "RelativeDocumentMoniker": "VotingSystem\\Models\\AdminDashboardViewModel.cs",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Models\\AdminDashboardViewModel.cs",
+              "RelativeToolTip": "VotingSystem\\Models\\AdminDashboardViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T12:25:32.892Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Results.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Voter\\Results.cshtml",
+              "RelativeDocumentMoniker": "VotingSystem\\Views\\Voter\\Results.cshtml",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Voter\\Results.cshtml",
+              "RelativeToolTip": "VotingSystem\\Views\\Voter\\Results.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-14T09:11:42.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Vote.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Voter\\Vote.cshtml",
+              "RelativeDocumentMoniker": "VotingSystem\\Views\\Voter\\Vote.cshtml",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Voter\\Vote.cshtml",
+              "RelativeToolTip": "VotingSystem\\Views\\Voter\\Vote.cshtml",
+              "ViewState": "AgIAADQAAAAAAAAAAAAuwEUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-13T14:38:52.159Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "_VoterLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Shared\\_VoterLayout.cshtml",
+              "RelativeDocumentMoniker": "VotingSystem\\Views\\Shared\\_VoterLayout.cshtml",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Shared\\_VoterLayout.cshtml",
+              "RelativeToolTip": "VotingSystem\\Views\\Shared\\_VoterLayout.cshtml",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAAAA4AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-31T10:48:39.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "VotingSystem\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "VotingSystem\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAiwJAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-13T12:30:02.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "VotingSystem\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "VotingSystem\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAiwGAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-13T12:26:14.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "EditCandidate.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Admin\\EditCandidate.cshtml",
+              "RelativeDocumentMoniker": "VotingSystem\\Views\\Admin\\EditCandidate.cshtml",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Admin\\EditCandidate.cshtml",
+              "RelativeToolTip": "VotingSystem\\Views\\Admin\\EditCandidate.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-13T13:39:18.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Candidates.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Admin\\Candidates.cshtml",
+              "RelativeDocumentMoniker": "VotingSystem\\Views\\Admin\\Candidates.cshtml",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Admin\\Candidates.cshtml",
+              "RelativeToolTip": "VotingSystem\\Views\\Admin\\Candidates.cshtml",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAAABMAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-13T13:38:05.559Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AddCandidate.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Admin\\AddCandidate.cshtml",
+              "RelativeDocumentMoniker": "VotingSystem\\Views\\Admin\\AddCandidate.cshtml",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Admin\\AddCandidate.cshtml",
+              "RelativeToolTip": "VotingSystem\\Views\\Admin\\AddCandidate.cshtml",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAFAAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-13T13:38:45.952Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "VotingSystem\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "VotingSystem\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwCEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T10:18:39.053Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "VotingDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Models\\VotingDbContext.cs",
+              "RelativeDocumentMoniker": "VotingSystem\\Models\\VotingDbContext.cs",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Models\\VotingDbContext.cs",
+              "RelativeToolTip": "VotingSystem\\Models\\VotingDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T11:51:23.415Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "VotingSystem\\Views\\Shared\\_AdminLayout.cshtml",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeToolTip": "VotingSystem\\Views\\Shared\\_AdminLayout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-31T09:58:34.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "20251031124308_AddUserLogs.cs",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Migrations\\20251031124308_AddUserLogs.cs",
+              "RelativeDocumentMoniker": "VotingSystem\\Migrations\\20251031124308_AddUserLogs.cs",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Migrations\\20251031124308_AddUserLogs.cs",
+              "RelativeToolTip": "VotingSystem\\Migrations\\20251031124308_AddUserLogs.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwBIAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T12:43:08.399Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Userlogs.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Admin\\Userlogs.cshtml",
+              "RelativeDocumentMoniker": "VotingSystem\\Views\\Admin\\Userlogs.cshtml",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Admin\\Userlogs.cshtml",
+              "RelativeToolTip": "VotingSystem\\Views\\Admin\\Userlogs.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-31T12:41:46.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "VotingSystem\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "VotingSystem\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAiwJEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T11:30:45.525Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Userlog.cs",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Models\\Userlog.cs",
+              "RelativeDocumentMoniker": "VotingSystem\\Models\\Userlog.cs",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Models\\Userlog.cs",
+              "RelativeToolTip": "VotingSystem\\Models\\Userlog.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T12:38:28.03Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Models\\User.cs",
+              "RelativeDocumentMoniker": "VotingSystem\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Models\\User.cs",
+              "RelativeToolTip": "VotingSystem\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T11:44:40.468Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Home\\Login.cshtml",
+              "RelativeDocumentMoniker": "VotingSystem\\Views\\Home\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Home\\Login.cshtml",
+              "RelativeToolTip": "VotingSystem\\Views\\Home\\Login.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAIwDsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-13T11:39:35.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Home\\Register.cshtml",
+              "RelativeDocumentMoniker": "VotingSystem\\Views\\Home\\Register.cshtml",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Home\\Register.cshtml",
+              "RelativeToolTip": "VotingSystem\\Views\\Home\\Register.cshtml",
+              "ViewState": "AgIAACUAAAAAAAAAAAAIwEsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-31T10:41:15.827Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Program.cs",
+              "RelativeDocumentMoniker": "VotingSystem\\Program.cs",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Program.cs",
+              "RelativeToolTip": "VotingSystem\\Program.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAqwEYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T11:41:32.808Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Vote.cs",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Models\\Vote.cs",
+              "RelativeDocumentMoniker": "VotingSystem\\Models\\Vote.cs",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Models\\Vote.cs",
+              "RelativeToolTip": "VotingSystem\\Models\\Vote.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T14:34:55.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Voter.cs",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Models\\Voter.cs",
+              "RelativeDocumentMoniker": "VotingSystem\\Models\\Voter.cs",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Models\\Voter.cs",
+              "RelativeToolTip": "VotingSystem\\Models\\Voter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T08:10:17.674Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "VotingSystem\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "VotingSystem\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAK0AAAAAAAAAAAAmwM8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-14T06:45:53.19Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "20251013144444_AddPositionToVotes.cs",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Migrations\\20251013144444_AddPositionToVotes.cs",
+              "RelativeDocumentMoniker": "VotingSystem\\Migrations\\20251013144444_AddPositionToVotes.cs",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Migrations\\20251013144444_AddPositionToVotes.cs",
+              "RelativeToolTip": "VotingSystem\\Migrations\\20251013144444_AddPositionToVotes.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T14:44:44.144Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "20251013143949_AddVotes.cs",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Migrations\\20251013143949_AddVotes.cs",
+              "RelativeDocumentMoniker": "VotingSystem\\Migrations\\20251013143949_AddVotes.cs",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Migrations\\20251013143949_AddVotes.cs",
+              "RelativeToolTip": "VotingSystem\\Migrations\\20251013143949_AddVotes.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwBYAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T14:39:49.469Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "VotingSystem.csproj",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\VotingSystem.csproj",
+              "RelativeDocumentMoniker": "VotingSystem\\VotingSystem.csproj",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\VotingSystem.csproj",
+              "RelativeToolTip": "VotingSystem\\VotingSystem.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAUwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-13T14:37:01.729Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "20251013141241_AddPositions.cs",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Migrations\\20251013141241_AddPositions.cs",
+              "RelativeDocumentMoniker": "VotingSystem\\Migrations\\20251013141241_AddPositions.cs",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Migrations\\20251013141241_AddPositions.cs",
+              "RelativeToolTip": "VotingSystem\\Migrations\\20251013141241_AddPositions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T14:12:42.014Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "20251013135324_AddCandidates.cs",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Migrations\\20251013135324_AddCandidates.cs",
+              "RelativeDocumentMoniker": "VotingSystem\\Migrations\\20251013135324_AddCandidates.cs",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Migrations\\20251013135324_AddCandidates.cs",
+              "RelativeToolTip": "VotingSystem\\Migrations\\20251013135324_AddCandidates.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T13:53:24.662Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "VotingSystem\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "VotingSystem\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-13T13:48:59.238Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "20251013122227_Initial.cs",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Migrations\\20251013122227_Initial.cs",
+              "RelativeDocumentMoniker": "VotingSystem\\Migrations\\20251013122227_Initial.cs",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Migrations\\20251013122227_Initial.cs",
+              "RelativeToolTip": "VotingSystem\\Migrations\\20251013122227_Initial.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T12:22:27.925Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\appsettings.json",
+              "RelativeDocumentMoniker": "VotingSystem\\appsettings.json",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\appsettings.json",
+              "RelativeToolTip": "VotingSystem\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-13T11:51:49.298Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "20251013115954_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Migrations\\20251013115954_InitialCreate.cs",
+              "RelativeDocumentMoniker": "VotingSystem\\Migrations\\20251013115954_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Migrations\\20251013115954_InitialCreate.cs",
+              "RelativeToolTip": "VotingSystem\\Migrations\\20251013115954_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T11:59:54.52Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Models\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "VotingSystem\\Models\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\VotingSystem\\Models\\LoginViewModel.cs",
+              "RelativeToolTip": "VotingSystem\\Models\\LoginViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T11:38:47.122Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\Pages\\Login.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\Pages\\Login.cshtml",
+              "RelativeToolTip": "Pages\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-13T11:29:35.819Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T11:28:38.741Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Login.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Jeff\\VotingSystem\\Pages\\Login.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Login.cshtml.cs",
+              "ToolTip": "C:\\Users\\Jeff\\VotingSystem\\Pages\\Login.cshtml.cs",
+              "RelativeToolTip": "Pages\\Login.cshtml.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T11:29:52.699Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+﻿@model IEnumerable<VotingSystem.Models.Candidates>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "View Candidates";
+}
+
+<style>
+    /* ======== PAGE STYLES ======== */
+    .candidates-page {
+        max-width: 1200px;
+    }
+
+    /* Header Section */
+    .page-header h1 {
+        font-weight: 700;
+        color: #1e3c72;
+    }
+
+    .page-header p {
+        color: #6c757d;
+        font-size: 0.95rem;
+    }
+
+    /* Card Styling */
+    .candidate-card {
+        border: none;
+        border-radius: 1rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+        .candidate-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .candidate-card .card-header {
+            background: linear-gradient(135deg, #007bff, #00c6ff);
+            border: none;
+            color: white;
+            border-radius: 1rem 1rem 0 0;
+        }
+
+        .candidate-card h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+    /* Table Styling */
+    .table {
+        margin-bottom: 0;
+    }
+
+        .table thead {
+            background-color: #f8f9fa;
+        }
+
+            .table thead th {
+                color: #6c757d;
+                font-weight: 600;
+                border-bottom: 2px solid #e9ecef;
+            }
+
+        .table tbody tr:hover {
+            background-color: #f6f9ff;
+            transition: 0.2s;
+        }
+
+        .table td {
+            vertical-align: middle;
+        }
+
+    .badge {
+        font-size: 0.9rem;
+        font-weight: 600;
+        border-radius: 50px;
+    }
+
+    /* Buttons */
+    .btn {
+        border-radius: 50px;
+        font-weight: 500;
+    }
+
+    .btn-warning {
+        background-color: #ffc107;
+        border: none;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border: none;
+    }
+
+    .btn-warning:hover {
+        background-color: #e0a800;
+    }
+
+    .btn-danger:hover {
+        background-color: #b52a37;
+    }
+
+    /* ID Cell */
+    .id-cell {
+        font-weight: 600;
+        color: #495057;
+    }
+</style>
+
+<div class="candidates-page container py-5">
+
+    <!-- 🔹 Header -->
+    <div class="page-header d-flex justify-content-between align-items-center mb-5">
+        <div>
+            <h1 class="mb-2">Candidate Management</h1>
+            <p class="mb-0">Review, manage, and update all registered candidates.</p>
+        </div>
+        <a class="btn btn-primary btn-lg shadow-sm px-4 d-flex align-items-center" asp-action="AddCandidate">
+            <i class="bi bi-person-plus-fill me-2 fs-5"></i> Add Candidate
+        </a>
+    </div>
+
+    <!-- 🔹 Candidate Groups -->
+    @foreach (var group in Model.GroupBy(c => c.Position))
+    {
+        <div class="candidate-card card mb-5">
+            <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-briefcase-fill me-2 fs-4"></i>
+                    <h4 class="mb-0">@group.Key</h4>
+                </div>
+                <span class="badge bg-light text-primary px-3 py-2">
+                    @group.Count() candidate(s)
+                </span>
+            </div>
+
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table align-middle text-center">
+                        <thead>
+                            <tr>
+                                <th style="width: 5%;">ID</th>
+                                <th style="width: 25%;">Name</th>
+                                <th style="width: 25%;">Party</th>
+                                <th style="width: 15%;">Votes</th>
+                                <th style="width: 30%;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var candidate in group)
+                            {
+                                <tr>
+                                    <td class="id-cell">@candidate.Id</td>
+                                    <td class="fw-semibold text-dark">@candidate.Name</td>
+                                    <td>@candidate.Party</td>
+                                    <td class="text-success fw-bold">@candidate.Votes</td>
+                                    <td>
+                                        <a asp-action="EditCandidate" asp-route-id="@candidate.Id"
+                                           class="btn btn-warning btn-sm me-2 px-3 shadow-sm">
+                                            <i class="bi bi-pencil-square me-1"></i>Edit
+                                        </a>
+                                        <a asp-action="DeleteCandidate" asp-route-id="@candidate.Id"
+                                           class="btn btn-danger btn-sm px-3 shadow-sm"
+                                           onclick="return confirm('Are you sure you want to delete this candidate?');">
+                                            <i class="bi bi-trash3-fill me-1"></i>Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div>

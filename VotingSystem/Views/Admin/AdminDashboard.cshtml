@@ -1,0 +1,178 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Active = "AdminDashboard";
+}
+@model VotingSystem.Models.AdminDashboardViewModel
+
+<div class="container-fluid py-4">
+
+    <!-- ===== Top Bar (Admin Info) ===== -->
+    <div class="d-flex justify-content-between align-items-center mb-4 px-3 py-2 rounded-3 shadow-sm bg-white border">
+        <div>
+            <h2 class="fw-bold text-primary mb-0">
+                <i class="bi bi-speedometer2 me-2"></i>Admin Dashboard
+            </h2>
+            <p class="text-muted mb-0 small">Monitor real-time election performance and user activity</p>
+        </div>
+
+        <!-- Gmail-style Admin Avatar -->
+        <div class="d-flex align-items-center">
+            <div class="dropdown">
+                <button class="btn border-0 bg-transparent dropdown-toggle d-flex align-items-center" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-2"
+                         style="width:40px; height:40px; font-weight:600;">
+                        @((Context.Session.GetString("Username") ?? "A").Substring(0, 1).ToUpper())
+                    </div>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="profileDropdown">
+                    <li class="px-3 py-2 border-bottom">
+                        <div class="fw-semibold">@Context.Session.GetString("Username") ?? "Administrator"</div>
+                        <div class="text-muted small">System Administrator</div>
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                        <a class="dropdown-item text-danger" asp-controller="Home" asp-action="Logout">
+                            <i class="bi bi-box-arrow-right me-2"></i>Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ===== Summary Cards ===== -->
+    <div class="row g-4 mb-4">
+        <div class="col-lg-3 col-md-6">
+            <div class="card shadow-sm border-0 rounded-4 text-center p-4 bg-white">
+                <div class="text-primary fs-3 mb-2"><i class="bi bi-people-fill"></i></div>
+                <h6 class="text-muted">Registered Voters</h6>
+                <h2 class="fw-bold text-dark">@Model.TotalVoters</h2>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card shadow-sm border-0 rounded-4 text-center p-4 bg-white">
+                <div class="text-success fs-3 mb-2"><i class="bi bi-check2-square"></i></div>
+                <h6 class="text-muted">Votes Cast</h6>
+                <h2 class="fw-bold text-success">@Model.TotalVotesCast</h2>
+                <small class="text-muted">Updated automatically</small>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card shadow-sm border-0 rounded-4 text-center p-4 bg-white">
+                <div class="text-primary fs-3 mb-2"><i class="bi bi-briefcase-fill"></i></div>
+                <h6 class="text-muted">Positions Available</h6>
+                <h2 class="fw-bold text-primary">@Model.TotalPositions</h2>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card shadow-sm border-0 rounded-4 text-center p-4 bg-white">
+                <div class="text-info fs-3 mb-2"><i class="bi bi-bar-chart-fill"></i></div>
+                <h6 class="text-muted">Voting Progress</h6>
+                <div class="progress my-2" style="height: 10px;">
+                    <div class="progress-bar bg-info" role="progressbar"
+                         style="width: @Model.VotingProgress%;"
+                         aria-valuenow="@Model.VotingProgress"
+                         aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <small class="fw-semibold text-dark">@Model.VotingProgress% of voters have voted</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- ===== Voting Summary Table ===== -->
+        <div class="col-lg-8">
+            <div class="card shadow-sm border-0 rounded-4 h-100">
+                <div class="card-body">
+                    <h4 class="fw-semibold text-secondary mb-3">
+                        <i class="bi bi-graph-up-arrow me-2 text-primary"></i>Voting Summary by Position
+                    </h4>
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover">
+                            <thead class="table-light">
+                                <tr class="text-secondary">
+                                    <th>Position</th>
+                                    <th>Candidate</th>
+                                    <th>Votes</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var group in Model.Candidates.GroupBy(c => c.Position))
+                                {
+                                    bool firstRow = true;
+                                    foreach (var candidate in group.OrderByDescending(c => c.Votes))
+                                    {
+                                        <tr>
+                                            <td>@(firstRow? group.Key: "")</td>
+                                            <td>@candidate.Name</td>
+                                            <td>@candidate.Votes</td>
+                                            <td>
+                                                @if (candidate.Votes == group.Max(c => c.Votes) && candidate.Votes > 0)
+                                                {
+                                                    <span class="badge bg-primary"><i class="bi bi-trophy-fill me-1"></i> Leading</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge bg-secondary">In Progress</span>
+                                                }
+                                            </td>
+                                        </tr>
+                                        firstRow = false;
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== Recent Activity / Logs ===== -->
+        <div class="col-lg-4">
+            <div class="card shadow-sm border-0 rounded-4 h-100">
+                <div class="card-body">
+                    <h4 class="fw-semibold text-secondary mb-3">
+                        <i class="bi bi-clock-history me-2 text-primary"></i>Recent User Activity
+                    </h4>
+
+                    @if (Model.RecentLogs != null && Model.RecentLogs.Any())
+                    {
+                        <div class="list-group list-group-flush">
+                            @foreach (var log in Model.RecentLogs.OrderByDescending(l => l.Timestamp).Take(6))
+                            {
+                                <div class="list-group-item border-0 d-flex align-items-center justify-content-between px-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-3">
+                                            <i class="bi bi-person-circle fs-4 text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <strong class="text-dark">@log.VoterUsername</strong>
+                                            <div class="small text-muted">
+                                                <span class="badge bg-success bg-opacity-75">
+                                                    <i class="bi bi-box-arrow-in-right me-1"></i> Signed in
+                                                </span>
+                                                — @log.Action
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <small class="text-muted">@log.Timestamp.ToString("MMM dd, yyyy hh:mm tt")</small>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted text-center mb-0 py-4">
+                            <i class="bi bi-info-circle me-1"></i> No recent user activity found.
+                        </p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

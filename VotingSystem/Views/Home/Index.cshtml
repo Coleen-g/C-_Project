@@ -1,0 +1,144 @@
+﻿@{
+    ViewData["Title"] = "Home";
+    Layout = "_Layout";
+}
+
+<style>
+    body {
+        background-color: #ffffff;
+        scroll-behavior: smooth;
+    }
+
+    /* ✅ Hero Section */
+    .hero-section {
+        position: relative;
+        background: url('/images/vote1.jpg') center center/cover no-repeat;
+        height: 90vh;
+        color: #0d1b2a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.65); /* Bright overlay */
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 750px;
+    }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #003366;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #333;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
+
+    .btn-primary {
+        background-color: #0d6efd;
+        border: none;
+        transition: 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background-color: #004bb5;
+        }
+
+    .btn-outline-primary {
+        border: 2px solid #0d6efd;
+        color: #0d6efd;
+        transition: 0.3s ease;
+    }
+
+        .btn-outline-primary:hover {
+            background-color: #0d6efd;
+            color: white;
+        }
+
+    /* ✅ Section styles */
+    section {
+        padding: 80px 0;
+    }
+
+        section h2 {
+            font-weight: 700;
+            color: #0d6efd;
+            margin-bottom: 1rem;
+        }
+
+        section p {
+            color: #555;
+            font-size: 1.05rem;
+        }
+</style>
+
+<!-- ✅ HERO SECTION -->
+<section id="home" class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content container">
+        <h1>Voting Here</h1>
+        <p>
+            Your voice matters! Cast your vote securely and make a difference today.<br />
+            Our system ensures fairness, accuracy, and transparency for every vote.
+        </p>
+        <div>
+            <a href="@Url.Action("Vote", "Home")" class="btn btn-primary btn-lg me-3">Vote Now</a>
+            <a href="#about" class="btn btn-outline-primary btn-lg">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- ✅ ABOUT SECTION -->
+<section id="about">
+    <div class="container text-center">
+        <h2>About Our Voting System</h2>
+        <p class="lead text-muted">
+            Our online voting platform is designed to ensure a secure, transparent, and accessible voting process.
+            We empower communities to express their voices easily and confidently.
+        </p>
+
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <i class="bi bi-shield-lock text-primary fs-1 mb-3"></i>
+                <h5>Secure</h5>
+                <p>Your votes are encrypted and safely stored.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="bi bi-people-fill text-primary fs-1 mb-3"></i>
+                <h5>Accessible</h5>
+                <p>Vote from anywhere, anytime with ease.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="bi bi-bar-chart-line text-primary fs-1 mb-3"></i>
+                <h5>Transparent</h5>
+                <p>Real-time results and complete accountability.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ✅ PRIVACY SECTION -->
+<section id="privacy" class="bg-light">
+    <div class="container text-center">
+        <h2>Privacy Policy</h2>
+        <p class="lead text-muted">
+            We respect your privacy. All data is securely processed and protected from unauthorized access.
+            Transparency and trust are at the heart of our system.
+        </p>
+        <a href="@Url.Action("Privacy", "Home")" class="btn btn-outline-primary px-4 mt-3">
+            Read Full Policy
+        </a>
+    </div>
+</section>

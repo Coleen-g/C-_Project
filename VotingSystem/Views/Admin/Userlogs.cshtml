@@ -1,0 +1,64 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Active = "UserLogs";
+}
+@model IEnumerable<VotingSystem.Models.UserLog>
+
+<div class="container-fluid py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold text-primary mb-0">Voter Activity Logs</h2>
+            <p class="text-muted mb-0">View all user login and voting history</p>
+        </div>
+        <a href="@Url.Action("AdminDashboard", "Admin")" class="btn btn-outline-secondary btn-sm">
+            <i class="bi bi-arrow-left"></i> Back to Dashboard
+        </a>
+    </div>
+
+    <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-body">
+            <h5 class="text-secondary fw-semibold mb-3">
+                <i class="bi bi-person-lines-fill me-2 text-primary"></i> Recent User Activity
+            </h5>
+
+            @if (!Model.Any())
+            {
+                <div class="alert alert-info text-center">
+                    <i class="bi bi-info-circle-fill me-2"></i>No user activity found.
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr class="text-secondary">
+                                <th>#</th>
+                                <th>Voter Username</th>
+                                <th>Action</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int counter = 1;
+                                foreach (var log in Model)
+                                {
+                                    <tr>
+                                        <td>@counter</td>
+                                        <td class="fw-semibold">@log.VoterUsername</td>
+                                        <td>@log.Action</td>
+                                        <td>@log.Timestamp.ToString("yyyy-MM-dd")</td>
+                                        <td>@log.Timestamp.ToString("hh:mm tt")</td>
+                                    </tr>
+                                    counter++;
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+</div>
