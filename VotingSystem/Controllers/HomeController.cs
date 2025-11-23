@@ -34,34 +34,39 @@ namespace VotingSystem.Controllers
                 return View();
             }
 
-            using (SHA256 sha256 = SHA256.Create())
+            var user = _context.Users.FirstOrDefault(u => u.Username == username);
+
+            if (user != null)
             {
-                var hashedPassword = BitConverter.ToString(
-                    sha256.ComputeHash(Encoding.UTF8.GetBytes(password))
-                ).Replace("-", "").ToLower();
+                bool validPassword = false;
 
-                var user = _context.Users
-                    .FirstOrDefault(u => u.Username == username && u.Password == hashedPassword);
-
-                if (user != null)
+                if (user.Role == "Admin")
                 {
-                    // Store session info
+                    using var sha256 = SHA256.Create();
+                    byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                    string hash = Convert.ToBase64String(bytes);
+                    validPassword = hash == user.Password;
+                }
+                else
+                {
+                    validPassword = BCrypt.Net.BCrypt.Verify(password, user.Password);
+                }
+
+                if (validPassword)
+                {
                     HttpContext.Session.SetString("Username", user.Username);
                     HttpContext.Session.SetString("Role", user.Role);
 
-                    // ✅ Log user login activity
-                    LogUserAction(user.Username, "Logged in");
-
-                    // Redirect based on role
                     if (user.Role == "Admin")
                         return RedirectToAction("AdminDashboard", "Admin");
                     else
                         return RedirectToAction("VoterDashboard", "Voter");
                 }
-
-                ViewBag.Error = "Invalid username or password.";
-                return View();
             }
+
+            ViewBag.Error = "Invalid username or password.";
+            return View();
+
         }
 
         // ✅ Register (GET)
@@ -71,6 +76,8 @@ namespace VotingSystem.Controllers
             return View();
         }
 
+
+        // ✅ Register (POST)
         // ✅ Register (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -82,38 +89,40 @@ namespace VotingSystem.Controllers
                 return View();
             }
 
-            // Check if username already exists
-            if (_context.Users.Any(u => u.Username == username))
+            // 🔍 Check if username already exists
+            var existingUser = _context.Users.FirstOrDefault(u => u.Username == username);
+
+            if (existingUser != null)
             {
-                ViewBag.Error = "Username already exists!";
-                return View();
+                ViewBag.Error = "Voter already registered!";
+                return View();   // stays on Register page and shows message
             }
 
-            // Hash password before saving
-            using (var sha256 = SHA256.Create())
+            // Hash password
+            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+
+            var newUser = new User
             {
-                var hashedPassword = BitConverter.ToString(
-                    sha256.ComputeHash(Encoding.UTF8.GetBytes(password))
-                ).Replace("-", "").ToLower();
+                FullName = fullName,
+                Username = username,
+                Password = hashedPassword,
+                Role = "Voter"
+            };
 
-                var newUser = new User
-                {
-                    FullName = fullName,
-                    Username = username,
-                    Password = hashedPassword,
-                    Role = "Voter"
-                };
+            _context.Users.Add(newUser);
+            _context.SaveChanges();
 
-                _context.Users.Add(newUser);
-                _context.SaveChanges();
+            LogUserAction(newUser.Username, "Registered new account");
 
-                // ✅ Log user registration activity
-                LogUserAction(newUser.Username, "Registered new account");
-            }
-
-            ViewBag.Success = "Registration successful! You can now log in.";
+            // ✅ Redirect to Login page after successful registration
+            TempData["SuccessMessage"] = "Registration successful! Please login.";
             return RedirectToAction("Login");
         }
+
+
+
+
+
 
         // ✅ Logout
         public IActionResult Logout()

@@ -1,0 +1,102 @@
+﻿@model VotingSystem.Models.User
+
+@{
+    ViewData["Title"] = "Edit Voter";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .edit-voter-page {
+        max-width: 700px;
+        margin: 30px auto;
+    }
+
+    .edit-voter-card {
+        border: none;
+        border-radius: 1rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        overflow: hidden;
+    }
+
+        .edit-voter-card .card-header {
+            background: linear-gradient(135deg, #007bff, #00c6ff);
+            color: white;
+            font-weight: 600;
+            font-size: 1.5rem;
+            padding: 15px 20px;
+            border-radius: 1rem 1rem 0 0;
+        }
+
+        .edit-voter-card .card-body {
+            padding: 20px;
+        }
+
+    .form-label {
+        font-weight: 500;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #007bff, #00c6ff);
+        border: none;
+        font-weight: 500;
+        border-radius: 50px;
+        padding: 8px 20px;
+        transition: 0.2s;
+    }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+    .btn-secondary {
+        border-radius: 50px;
+        padding: 8px 20px;
+        font-weight: 500;
+    }
+
+    .alert-success {
+        border-radius: 1rem;
+    }
+</style>
+
+<div class="edit-voter-page">
+    <div class="edit-voter-card card">
+        <div class="card-header">
+            Edit Voter
+        </div>
+        <div class="card-body">
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success mb-3">
+                    @TempData["SuccessMessage"]
+                </div>
+            }
+
+            <form asp-action="EditVoter" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" asp-for="Id" />
+
+                <div class="form-group mb-3">
+                    <label asp-for="Username" class="form-label">Username</label>
+                    <input asp-for="Username" class="form-control" placeholder="Enter username" />
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="FullName" class="form-label">Full Name</label>
+                    <input asp-for="FullName" class="form-control" placeholder="Enter full name" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">Update Voter</button>
+                    <a asp-action="ManageVoters" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

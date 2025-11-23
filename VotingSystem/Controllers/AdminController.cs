@@ -1,27 +1,35 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using System.Linq;
+using System.IO;
 using VotingSystem.Models;
+using BCrypt.Net;
 
 namespace VotingSystem.Controllers
 {
     public class AdminController : Controller
     {
         private readonly VotingDbContext _context;
+        private readonly string _imageFolderPath;
 
-        public AdminController(VotingDbContext context)
+        public AdminController(VotingDbContext context, IWebHostEnvironment env)
         {
             _context = context;
+            _imageFolderPath = Path.Combine(env.WebRootPath, "images");
+
+            if (!Directory.Exists(_imageFolderPath))
+                Directory.CreateDirectory(_imageFolderPath);
         }
 
-        // ✅ Check if session user is Admin
         private bool IsAdmin()
         {
             var role = HttpContext.Session.GetString("Role");
             return !string.IsNullOrEmpty(role) && role == "Admin";
         }
 
-        // ✅ Admin Dashboard
+        // =============================
+        // DASHBOARD
+        // =============================
         public IActionResult AdminDashboard()
         {
             if (!IsAdmin())
@@ -48,7 +56,9 @@ namespace VotingSystem.Controllers
             return View("~/Views/Admin/AdminDashboard.cshtml", model);
         }
 
-        // ✅ Add Candidate (GET)
+        // =============================
+        // ADD CANDIDATE (GET)
+        // =============================
         [HttpGet]
         public IActionResult AddCandidate()
         {
@@ -59,28 +69,46 @@ namespace VotingSystem.Controllers
             return View("~/Views/Admin/AddCandidate.cshtml");
         }
 
-        // ✅ Add Candidate (POST)
+        // =============================
+        // ADD CANDIDATE (POST + IMAGE UPLOAD)
+        // =============================
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AddCandidate(Candidates candidate)
+        public IActionResult AddCandidate(Candidates candidate, IFormFile ImageFile, string NewPosition)
         {
             if (!IsAdmin())
-                return RedirectToAction("Login", "Home");
+                return Json(new { success = false, error = "Unauthorized" });
 
-            if (ModelState.IsValid)
+            // Use new position if provided
+            if (!string.IsNullOrEmpty(NewPosition))
             {
-                _context.Candidates.Add(candidate);
-                _context.SaveChanges();
-
-                TempData["SuccessMessage"] = "Candidate added successfully!";
-                return RedirectToAction("Candidates");
+                candidate.Position = NewPosition;
             }
 
-            ViewBag.Positions = _context.Positions.Select(p => p.Name).ToList();
-            return View("~/Views/Admin/AddCandidate.cshtml", candidate);
+            // Save image
+            if (ImageFile != null && ImageFile.Length > 0)
+            {
+                string fileName = Guid.NewGuid().ToString() + Path.GetExtension(ImageFile.FileName);
+                string filePath = Path.Combine(_imageFolderPath, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    ImageFile.CopyTo(stream);
+                }
+
+                candidate.ImagePath = "/images/" + fileName;
+            }
+
+            _context.Candidates.Add(candidate);
+            _context.SaveChanges();
+
+            return Json(new { success = true, newPosition = NewPosition });
         }
 
-        // ✅ View Candidates
+
+        // =============================
+        // VIEW CANDIDATES
+        // =============================
         public IActionResult Candidates()
         {
             if (!IsAdmin())
@@ -90,10 +118,18 @@ namespace VotingSystem.Controllers
                 .OrderBy(c => c.Position)
                 .ToList();
 
-            return View("~/Views/Admin/Candidates.cshtml", candidates);
+            // Pass all unique positions to ViewBag
+            ViewBag.Positions = _context.Positions
+                .Select(p => p.Name)
+                .ToList();
+
+            return View(candidates);
         }
 
-        // ✅ Edit Candidate (GET)
+
+        // =============================
+        // EDIT CANDIDATE (GET)
+        // =============================
         [HttpGet]
         public IActionResult EditCandidate(int id)
         {
@@ -108,28 +144,53 @@ namespace VotingSystem.Controllers
             return View("~/Views/Admin/EditCandidate.cshtml", candidate);
         }
 
-        // ✅ Edit Candidate (POST)
+        // =============================
+        // EDIT CANDIDATE (POST + IMAGE REPLACE)
+        // =============================
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult EditCandidate(Candidates candidate)
+        public IActionResult EditCandidate(Candidates candidate, IFormFile ImageFile)
         {
             if (!IsAdmin())
                 return RedirectToAction("Login", "Home");
 
-            if (ModelState.IsValid)
-            {
-                _context.Candidates.Update(candidate);
-                _context.SaveChanges();
+            var existingCandidate = _context.Candidates.FirstOrDefault(c => c.Id == candidate.Id);
+            if (existingCandidate == null)
+                return NotFound();
 
-                TempData["SuccessMessage"] = "Candidate updated successfully!";
-                return RedirectToAction("Candidates");
+            // Update basic fields
+            existingCandidate.Name = candidate.Name;
+            existingCandidate.Party = candidate.Party;
+            existingCandidate.Position = candidate.Position;
+
+            if (ImageFile != null && ImageFile.Length > 0)
+            {
+                if (!string.IsNullOrEmpty(existingCandidate.ImagePath))
+                {
+                    string oldImage = Path.Combine(_imageFolderPath, Path.GetFileName(existingCandidate.ImagePath));
+                    if (System.IO.File.Exists(oldImage))
+                        System.IO.File.Delete(oldImage);
+                }
+
+                string newFileName = Guid.NewGuid().ToString() + Path.GetExtension(ImageFile.FileName);
+                string newPath = Path.Combine(_imageFolderPath, newFileName);
+
+                using (var stream = new FileStream(newPath, FileMode.Create))
+                {
+                    ImageFile.CopyTo(stream);
+                }
+
+                existingCandidate.ImagePath = "/images/" + newFileName;
             }
 
-            ViewBag.Positions = _context.Positions.Select(p => p.Name).ToList();
-            return View("~/Views/Admin/EditCandidate.cshtml", candidate);
+            _context.SaveChanges();
+            TempData["SuccessMessage"] = "Candidate updated successfully!";
+            return RedirectToAction("Candidates");
         }
 
-        // ✅ Delete Candidate
+        // =============================
+        // DELETE CANDIDATE
+        // =============================
         public IActionResult DeleteCandidate(int id)
         {
             if (!IsAdmin())
@@ -138,6 +199,13 @@ namespace VotingSystem.Controllers
             var candidate = _context.Candidates.Find(id);
             if (candidate != null)
             {
+                if (!string.IsNullOrEmpty(candidate.ImagePath))
+                {
+                    string imagePath = Path.Combine(_imageFolderPath, Path.GetFileName(candidate.ImagePath));
+                    if (System.IO.File.Exists(imagePath))
+                        System.IO.File.Delete(imagePath);
+                }
+
                 _context.Candidates.Remove(candidate);
                 _context.SaveChanges();
             }
@@ -146,17 +214,20 @@ namespace VotingSystem.Controllers
             return RedirectToAction("Candidates");
         }
 
-        // ✅ View Results
+        // =============================
+        // RESULTS
+        // =============================
         public IActionResult Results()
         {
             if (!IsAdmin())
                 return RedirectToAction("Login", "Home");
 
-            var candidates = _context.Candidates.ToList();
-            return View("~/Views/Admin/Results.cshtml", candidates);
+            return View("~/Views/Admin/Results.cshtml", _context.Candidates.ToList());
         }
 
-        // ✅ View User Logs
+        // =============================
+        // USER LOGS
+        // =============================
         public IActionResult UserLogs()
         {
             if (!IsAdmin())
@@ -170,7 +241,104 @@ namespace VotingSystem.Controllers
             return View("~/Views/Admin/UserLogs.cshtml", logs);
         }
 
-        // ✅ Logout
+        // =============================
+        // MANAGE VOTERS
+        // =============================
+        public IActionResult ManageVoters()
+        {
+            if (!IsAdmin())
+                return RedirectToAction("Login", "Home");
+
+            var voters = _context.Users
+                .Where(u => u.Role == "Voter")
+                .OrderBy(u => u.FullName)
+                .ToList();
+
+            return View("~/Views/Admin/ManageVoters.cshtml", voters);
+        }
+
+        [HttpGet]
+        public IActionResult AddVoter()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AddVoter(User voter)
+        {
+            if (!IsAdmin())
+                return RedirectToAction("Login", "Home");
+
+            if (string.IsNullOrWhiteSpace(voter.Username) ||
+                string.IsNullOrWhiteSpace(voter.FullName) ||
+                string.IsNullOrWhiteSpace(voter.Password))
+            {
+                ModelState.AddModelError("", "All fields are required");
+                return View(voter);
+            }
+
+            voter.Role = "Voter";
+            voter.Password = BCrypt.Net.BCrypt.HashPassword(voter.Password);
+
+            _context.Users.Add(voter);
+            _context.SaveChanges();
+
+            TempData["SuccessMessage"] = "Voter added successfully!";
+            return RedirectToAction("ManageVoters");
+        }
+
+        // EDIT VOTER
+        [HttpGet]
+        public IActionResult EditVoter(int id)
+        {
+            if (!IsAdmin())
+                return RedirectToAction("Login", "Home");
+
+            var voter = _context.Users.FirstOrDefault(u => u.Id == id && u.Role == "Voter");
+            if (voter == null)
+                return NotFound();
+
+            return View("~/Views/Admin/EditVoter.cshtml", voter);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult EditVoter(User updatedVoter)
+        {
+            if (!IsAdmin())
+                return RedirectToAction("Login", "Home");
+
+            ModelState.Remove("Password");
+
+            if (!ModelState.IsValid)
+                return View("~/Views/Admin/EditVoter.cshtml", updatedVoter);
+
+            var voter = _context.Users.FirstOrDefault(u => u.Id == updatedVoter.Id);
+            if (voter == null)
+                return NotFound();
+
+            voter.Username = updatedVoter.Username;
+            voter.FullName = updatedVoter.FullName;
+
+            _context.SaveChanges();
+            TempData["SuccessMessage"] = "Voter updated!";
+            return RedirectToAction("ManageVoters");
+        }
+
+        public IActionResult DeleteVoter(int id)
+        {
+            var voter = _context.Users.FirstOrDefault(u => u.Id == id && u.Role == "Voter");
+            if (voter == null)
+                return NotFound();
+
+            _context.Users.Remove(voter);
+            _context.SaveChanges();
+
+            return RedirectToAction("ManageVoters");
+        }
+
+        // LOGOUT
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();

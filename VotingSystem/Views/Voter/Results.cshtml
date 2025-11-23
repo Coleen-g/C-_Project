@@ -1,50 +1,96 @@
-﻿    @model IEnumerable<VotingSystem.Models.Candidates>
+﻿@model IEnumerable<VotingSystem.Models.Candidates>
 
-    <div class="container mt-5">
-        <h1 class="mb-4 text-primary text-center fw-bold">Election Results</h1>
+@{
+    ViewData["Title"] = "Results";
+    Layout = "~/Views/Shared/_VoterLayout.cshtml";
+}
 
-        @if (!Model.Any())
+<div class="container-fluid py-4">
+
+    <!-- Page Header -->
+    <div class="text-center mb-5">
+        <h2 class="fw-bold text-primary">
+            <i class="bi bi-bar-chart-line-fill me-2"></i>Election Results
+        </h2>
+        <p class="text-muted fs-6">See the latest results for each position</p>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info text-center shadow-sm rounded-3">
+            <i class="bi bi-info-circle-fill me-2"></i>No votes have been cast yet.
+        </div>
+    }
+    else
+    {
+        @foreach (var group in Model.GroupBy(c => c.Position))
         {
-            <div class="alert alert-info text-center">
-                <i class="bi bi-info-circle-fill me-2"></i>No votes have been cast yet.
-            </div>
-        }
-        else
-        {
-            @foreach (var group in Model.GroupBy(c => c.Position))
-            {
-                <div class="mb-5">
-                    <h3 class="mb-3 text-secondary fw-semibold">@group.Key</h3>
-                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                        @foreach (var candidate in group.OrderByDescending(c => c.Votes))
-                        {
-                            <div class="col">
-                                <div class="card h-100 shadow-sm border-0 rounded-4">
-                                    <div class="card-body d-flex flex-column justify-content-between">
-                                        <div>
-                                            <h5 class="card-title fw-bold">@candidate.Name</h5>
-                                            <p class="card-text text-muted mb-2">
-                                                <i class="bi bi-flag-fill me-1"></i> @candidate.Party
-                                            </p>
-                                            <p class="card-text">
-                                                <span class="badge bg-success fs-6">
-                                                    <i class="bi bi-bar-chart-line me-1"></i> @candidate.Votes Votes
-                                                </span>
-                                            </p>
-                                        </div>
-                                        @* Highlight winner *@
-                                        @if (candidate.Votes == group.Max(c => c.Votes))
-                                        {
-                                            <span class="badge bg-primary text-white mt-3 p-2 w-100 fs-6 fw-semibold text-center">
-                                                <i class="bi bi-trophy-fill me-1"></i> Winner
+            <div class="mb-5">
+                <h3 class="text-success fw-bold mb-3 text-center position-title">
+                    <i class="bi bi-person-badge-fill me-2"></i>@group.Key
+                </h3>
+
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    @foreach (var candidate in group.OrderByDescending(c => c.Votes))
+                    {
+                        <div class="col">
+                            <div class="card h-100 shadow-sm border-0 rounded-4 hover-card">
+                                <div class="card-body d-flex flex-column justify-content-between text-center p-4">
+                                    <div>
+                                        <h5 class="card-title fw-bold text-success">@candidate.Name</h5>
+                                        <p class="text-muted mb-2 fs-6">
+                                            <i class="bi bi-flag-fill me-1"></i>@candidate.Party
+                                        </p>
+                                        <p class="mb-0">
+                                            <span class="badge bg-success fs-6">
+                                                <i class="bi bi-bar-chart-line me-1"></i>@candidate.Votes Votes
                                             </span>
-                                        }
+                                        </p>
                                     </div>
+
+                                    @* Highlight winner *@
+                                    @if (candidate.Votes == group.Max(c => c.Votes))
+                                    {
+                                        <span class="badge bg-primary text-white mt-3 p-2 w-100 fs-6 fw-semibold">
+                                            <i class="bi bi-trophy-fill me-1"></i>Winner
+                                        </span>
+                                    }
                                 </div>
                             </div>
-                        }
-                    </div>
+                        </div>
+                    }
                 </div>
-            }
+            </div>
         }
-    </div>
+    }
+</div>
+
+<style>
+    /* Card Hover Effect */
+    .hover-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+    /* Position Title Styling */
+    .position-title {
+        border-bottom: 2px solid #198754;
+        display: inline-block;
+        padding-bottom: 0.5rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Responsive adjustments */
+    @@media (max-width: 576px) {
+        .hover-card
+
+    {
+        margin-bottom: 1rem;
+    }
+
+    }
+</style>

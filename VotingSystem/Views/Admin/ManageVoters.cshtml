@@ -1,0 +1,202 @@
+﻿@model List<VotingSystem.Models.User>
+@{
+    ViewData["Title"] = "Manage Voters";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .voters-page {
+        max-width: 1200px;
+        padding: 30px 15px;
+    }
+
+    /* Header Section */
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+        .page-header h1 {
+            font-weight: 700;
+            color: #1e3c72;
+            margin: 0;
+        }
+
+        .page-header p {
+            color: #6c757d;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+    .btn-add {
+        font-weight: 500;
+        border-radius: 50px;
+        padding: 10px 18px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        background-color: #007bff;
+        border: none;
+        color: white;
+        font-size: 1rem;
+        transition: 0.2s;
+    }
+
+        .btn-add:hover {
+            background-color: #0056b3;
+        }
+
+    /* Card Styling */
+    .voter-card {
+        border: none;
+        border-radius: 1rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        transition: all 0.3s ease;
+        margin-bottom: 30px;
+    }
+
+        .voter-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .voter-card .card-header {
+            background: linear-gradient(135deg, #007bff, #00c6ff);
+            border: none;
+            color: white;
+            border-radius: 1rem 1rem 0 0;
+            padding: 15px 20px;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+
+    /* Table Styling */
+    .table {
+        margin-bottom: 0;
+        border-radius: 0 0 1rem 1rem;
+    }
+
+        .table thead {
+            background-color: #f8f9fa;
+        }
+
+            .table thead th {
+                color: #6c757d;
+                font-weight: 600;
+                border-bottom: 2px solid #e9ecef;
+            }
+
+        .table tbody tr:hover {
+            background-color: #f6f9ff;
+            transition: 0.2s;
+        }
+
+        .table td {
+            vertical-align: middle;
+        }
+
+    .badge-count {
+        font-size: 0.9rem;
+        font-weight: 600;
+        border-radius: 50px;
+        background-color: rgba(0,123,255,0.1);
+        color: #007bff;
+        padding: 5px 12px;
+    }
+
+    /* Buttons */
+    .btn-warning {
+        background-color: #ffc107;
+        border: none;
+        border-radius: 50px;
+        font-weight: 500;
+        padding: 5px 12px;
+    }
+
+        .btn-warning:hover {
+            background-color: #e0a800;
+        }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border: none;
+        border-radius: 50px;
+        font-weight: 500;
+        padding: 5px 12px;
+    }
+
+        .btn-danger:hover {
+            background-color: #b52a37;
+        }
+
+    .id-cell {
+        font-weight: 600;
+        color: #495057;
+    }
+</style>
+
+<div class="voters-page container">
+
+    <!-- Header -->
+    <div class="page-header">
+        <div>
+            <h1>Voter Management</h1>
+            <p>Review, manage, and update all registered voters.</p>
+        </div>
+        <a class="btn-add" asp-action="AddVoter">
+            <i class="bi bi-person-plus-fill"></i> Add Voter
+        </a>
+    </div>
+
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success mb-3">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    <!-- Voter Card -->
+    <div class="voter-card card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <span>Total Voters: <span class="badge-count">@Model.Count()</span></span>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-striped text-center mb-0">
+                    <thead>
+                        <tr>
+                            <th style="width:5%;">ID</th>
+                            <th style="width:40%;">Username</th>
+                            <th style="width:35%;">Full Name</th>
+                            <th style="width:20%;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var voter in Model)
+                        {
+                            <tr>
+                                <td class="id-cell">@voter.Id</td>
+                                <td>@voter.Username</td>
+                                <td>@voter.FullName</td>
+                                <td>
+                                    <a asp-action="EditVoter" asp-route-id="@voter.Id" class="btn btn-warning btn-sm me-2">
+                                        <i class="bi bi-pencil-square me-1"></i>Edit
+                                    </a>
+                                    <a asp-action="DeleteVoter" asp-route-id="@voter.Id" class="btn btn-danger btn-sm"
+                                       onclick="return confirm('Are you sure you want to delete this voter?');">
+                                        <i class="bi bi-trash3-fill me-1"></i>Delete
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

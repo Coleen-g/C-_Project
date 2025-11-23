@@ -4,21 +4,79 @@
 }
 @model IEnumerable<VotingSystem.Models.UserLog>
 
+<style>
+    /* ===== Card Styling ===== */
+    .card-gradient {
+        border: none;
+        border-radius: 1rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+    }
+
+        .card-gradient:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
+
+    /* Header Icons */
+    .page-header i {
+        color: #007bff;
+    }
+
+    /* Table Styling */
+    .table thead th {
+        color: #6c757d;
+        font-weight: 600;
+        border-bottom: 2px solid #e9ecef;
+    }
+
+    .table tbody tr:hover {
+        background-color: #f6f9ff;
+        transition: 0.2s;
+    }
+
+    .fw-semibold {
+        font-weight: 600;
+    }
+
+    /* Buttons */
+    .btn-back {
+        border-radius: 50px;
+        font-weight: 500;
+        border: 1px solid #007bff;
+        color: #007bff;
+        background-color: white;
+        transition: 0.2s;
+    }
+
+        .btn-back:hover {
+            background-color: rgba(0,123,255,0.1);
+        }
+
+    /* Alerts */
+    .alert-info {
+        border-radius: 1rem;
+    }
+</style>
+
 <div class="container-fluid py-4">
+
+    <!-- ===== Page Header ===== -->
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
-            <h2 class="fw-bold text-primary mb-0">Voter Activity Logs</h2>
+            <h2 class="fw-bold text-primary mb-0"><i class="bi bi-person-lines-fill me-2"></i>Voter Activity Logs</h2>
             <p class="text-muted mb-0">View all user login and voting history</p>
         </div>
-        <a href="@Url.Action("AdminDashboard", "Admin")" class="btn btn-outline-secondary btn-sm">
-            <i class="bi bi-arrow-left"></i> Back to Dashboard
+        <a href="@Url.Action("AdminDashboard", "Admin")" class="btn btn-back btn-sm px-3 py-2">
+            <i class="bi bi-arrow-left me-1"></i> Back to Dashboard
         </a>
     </div>
 
-    <div class="card shadow-sm border-0 rounded-4">
+    <!-- ===== Card Container ===== -->
+    <div class="card card-gradient shadow-sm rounded-4">
         <div class="card-body">
             <h5 class="text-secondary fw-semibold mb-3">
-                <i class="bi bi-person-lines-fill me-2 text-primary"></i> Recent User Activity
+                <i class="bi bi-clock-history me-2 text-primary"></i> Recent User Activity
             </h5>
 
             @if (!Model.Any())
@@ -30,14 +88,14 @@
             else
             {
                 <div class="table-responsive">
-                    <table class="table table-hover align-middle">
+                    <table class="table table-hover align-middle text-center mb-0">
                         <thead class="table-light">
                             <tr class="text-secondary">
-                                <th>#</th>
-                                <th>Voter Username</th>
-                                <th>Action</th>
-                                <th>Date</th>
-                                <th>Time</th>
+                                <th style="width:5%;">#</th>
+                                <th style="width:25%;">Voter Username</th>
+                                <th style="width:35%;">Action</th>
+                                <th style="width:20%;">Date</th>
+                                <th style="width:15%;">Time</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,8 +104,8 @@
                                 foreach (var log in Model)
                                 {
                                     <tr>
-                                        <td>@counter</td>
-                                        <td class="fw-semibold">@log.VoterUsername</td>
+                                        <td class="fw-semibold">@counter</td>
+                                        <td class="fw-semibold text-dark">@log.VoterUsername</td>
                                         <td>@log.Action</td>
                                         <td>@log.Timestamp.ToString("yyyy-MM-dd")</td>
                                         <td>@log.Timestamp.ToString("hh:mm tt")</td>

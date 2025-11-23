@@ -1,7 +1,17 @@
-﻿public class Vote
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace VotingSystem.Models
 {
-    public int Id { get; set; }
-    public string VoterUsername { get; set; } // username of voter
-    public int CandidateId { get; set; }
-    public string Position { get; set; } // track position voted
+    public class Vote
+    {
+        [Key]
+        public int Id { get; set; }
+
+        public int CandidateId { get; set; }
+        public string VoterUsername { get; set; }
+        public string Position { get; set; }
+
+       
+    }
 }

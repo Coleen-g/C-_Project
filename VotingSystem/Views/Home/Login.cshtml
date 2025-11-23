@@ -3,12 +3,20 @@
     ViewData["Title"] = "Login";
 }
 
-<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+<div class="d-flex justify-content-center align-items-center vh-100" style="background: linear-gradient(135deg, #007bff, #00c6ff);">
     <div class="card shadow-lg border-0 rounded-4" style="width: 400px;">
-        <div class="card-body p-4">
-            <h2 class="text-center text-primary fw-bold mb-4">
-                <i class="bi bi-box-arrow-in-right me-2"></i>Login
-            </h2>
+        <div class="card-body p-5">
+
+            <!-- System Logo & Name -->
+            <div class="text-center mb-4">
+                <i class="fa-solid fa-vote-yea text-primary fs-1 mb-2"></i>
+                <h2 class="fw-bold text-primary">Votium</h2>
+                <p class="text-muted mb-0">Secure Online Voting System</p>
+            </div>
+
+            <h4 class="text-center text-secondary fw-semibold mb-4">
+                <i class="bi bi-box-arrow-in-right me-2 text-primary"></i>Login
+            </h4>
 
             @* Display error message if login fails *@
             @if (ViewBag.Error != null)
@@ -21,31 +29,31 @@
             <form asp-action="Login" method="post">
                 <div class="mb-3">
                     <label for="username" class="form-label fw-semibold">Username</label>
-                    <div class="input-group">
-                        <span class="input-group-text bg-primary text-white">
+                    <div class="input-group shadow-sm rounded-3">
+                        <span class="input-group-text bg-primary text-white rounded-start">
                             <i class="bi bi-person-fill"></i>
                         </span>
-                        <input type="text" name="username" class="form-control" id="username" placeholder="Enter your username" required />
+                        <input type="text" name="username" class="form-control rounded-end" id="username" placeholder="Enter your username" required />
                     </div>
                 </div>
 
                 <div class="mb-4">
                     <label for="password" class="form-label fw-semibold">Password</label>
-                    <div class="input-group">
-                        <span class="input-group-text bg-primary text-white">
+                    <div class="input-group shadow-sm rounded-3">
+                        <span class="input-group-text bg-primary text-white rounded-start">
                             <i class="bi bi-lock-fill"></i>
                         </span>
-                        <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password" required />
+                        <input type="password" name="password" class="form-control rounded-end" id="password" placeholder="Enter your password" required />
                     </div>
                 </div>
 
-                <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-primary py-2 fw-semibold">
+                <div class="d-grid gap-2 mb-3">
+                    <button type="submit" class="btn btn-primary py-2 fw-semibold shadow-sm rounded-pill">
                         <i class="bi bi-box-arrow-in-right me-1"></i>Login
                     </button>
                 </div>
 
-                <div class="text-center mt-3">
+                <div class="text-center">
                     <p class="mb-0 text-secondary">
                         Don’t have an account?
                         <a asp-controller="Home" asp-action="Register" class="text-primary fw-semibold text-decoration-none">
@@ -57,3 +65,6 @@
         </div>
     </div>
 </div>
+
+<!-- Optional: FontAwesome if not included in layout -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />

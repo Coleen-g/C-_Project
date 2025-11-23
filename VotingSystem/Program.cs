@@ -1,39 +1,70 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using VotingSystem.Models; // contains VotingDbContext
+using VotingSystem.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using System;
+using Microsoft.AspNetCore.Http;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// ==========================
+// ✅ Add MVC
+// ==========================
 builder.Services.AddControllersWithViews();
 
-// ✅ Add session support
+// ==========================
+// ✅ Add Session support
+// ==========================
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30); // session timeout
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
+
+    // Allow sending cookies on localhost HTTP for development
+    options.Cookie.SecurePolicy = CookieSecurePolicy.None;
+    options.Cookie.SameSite = SameSiteMode.Lax;
 });
 
-// Connect to MySQL
+// ==========================
+// ✅ Configure antiforgery cookies
+// ==========================
+builder.Services.AddAntiforgery(options =>
+{
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+
+    // Allow sending antiforgery cookie on HTTP for dev
+    options.Cookie.SecurePolicy = CookieSecurePolicy.None;
+    options.Cookie.SameSite = SameSiteMode.Lax;
+});
+
+// ==========================
+// ✅ Connect to MySQL
+// ==========================
 builder.Services.AddDbContext<VotingDbContext>(options =>
     options.UseMySql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
         new MySqlServerVersion(new Version(8, 0, 36))
     ));
 
+// ==========================
+// Build App
+// ==========================
 var app = builder.Build();
 
-// ✅ Seed positions and ensure database is created
+// ==========================
+// ✅ Apply database migrations automatically on startup
+// ==========================
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<VotingDbContext>();
 
-    // Ensure database is created
-    context.Database.EnsureCreated();
+    // Apply migrations (creates/updates tables automatically)
+    context.Database.Migrate();
 
-    // Seed positions if empty
+    // ✅ Seed Positions if database is empty
     if (!context.Positions.Any())
     {
         context.Positions.AddRange(
@@ -47,7 +78,9 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-// Configure the HTTP request pipeline.
+// ==========================
+// ✅ Middleware pipeline
+// ==========================
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -55,16 +88,28 @@ if (!app.Environment.IsDevelopment())
 
 app.UseStaticFiles();
 
-app.UseRouting();
+// ==========================
+// ✅ Force HTTPS redirection
+// ==========================
+app.UseHttpsRedirection();
 
+// ==========================
 // ✅ Enable session
+// ==========================
 app.UseSession();
 
+// ==========================
+// ✅ Routing & Authorization
+// ==========================
+app.UseRouting();
 app.UseAuthorization();
 
-// Default route — open Home/Index (Welcome page) first
+// ==========================
+// ✅ Default route
+// ==========================
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+);
 
 app.Run();

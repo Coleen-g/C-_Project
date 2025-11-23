@@ -1,12 +1,34 @@
-﻿<!DOCTYPE html>
+﻿@using VotingSystem.Models
+@inject VotingDbContext DbContext
+
+@{
+    ViewData["Title"] = ViewData["Title"] ?? "Dashboard";
+
+    // Get current username from session
+    var username = Context.Session.GetString("Username");
+
+    // Fetch user full name from database
+    var fullName = "Unknown User";
+    if (!string.IsNullOrEmpty(username))
+    {
+        var user = DbContext.Users.FirstOrDefault(u => u.Username == username);
+        if (user != null) fullName = user.FullName;
+    }
+
+    // Generate initials for avatar
+    var initials = string.Join("", fullName.Split(' ').Select(n => n[0])).ToUpper();
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Voter Dashboard</title>
+    <title>@ViewData["Title"] - Votium</title>
 
+    <!-- Bootstrap & Icons -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 
     <style>
@@ -16,12 +38,13 @@
             background-color: #f8f9fa;
             margin: 0;
             overflow-x: hidden;
+            font-family: 'Segoe UI', sans-serif;
         }
 
         /* ===== Sidebar ===== */
         .sidebar {
-            width: 250px;
-            background-color: #212529;
+            width: 260px;
+            background: linear-gradient(135deg, #007bff, #00c6ff);
             color: #fff;
             display: flex;
             flex-direction: column;
@@ -29,49 +52,61 @@
             top: 0;
             bottom: 0;
             left: 0;
-            padding-top: 1rem;
+            padding-top: 1.5rem;
+            border-radius: 0 20px 20px 0;
         }
 
             .sidebar h3 {
-                text-align: center;
-                font-weight: bold;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
                 color: #fff;
-                margin-bottom: 1.5rem;
+                margin-bottom: 2rem;
+                font-size: 1.5rem;
             }
+
+                .sidebar h3 i {
+                    font-size: 1.8rem;
+                    margin-right: 0.5rem;
+                }
 
             .sidebar a {
                 display: flex;
                 align-items: center;
-                color: #adb5bd;
+                color: #e0e0e0;
                 padding: 12px 20px;
                 text-decoration: none;
-                font-weight: 500;
+                font-weight: 600;
+                font-size: 1.1rem;
                 transition: all 0.3s;
-                border-radius: 8px;
-                margin: 4px 10px;
+                border-radius: 10px;
+                margin: 5px 12px;
             }
 
                 .sidebar a i {
                     margin-right: 12px;
-                    font-size: 1.1rem;
+                    font-size: 1.25rem;
                 }
 
-                .sidebar a:hover, .sidebar a.active {
-                    background-color: #0d6efd;
+                .sidebar a:hover,
+                .sidebar a.active {
+                    background-color: rgba(255,255,255,0.2);
                     color: #fff;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
                 }
 
-        /* ===== Content Area ===== */
+        /* ===== Main Content ===== */
         .main-content {
             flex-grow: 1;
-            margin-left: 250px;
+            margin-left: 260px;
             display: flex;
             flex-direction: column;
         }
 
         /* ===== Top Navbar ===== */
         .top-navbar {
-            background-color: #fff;
+            background: #fff;
             border-bottom: 1px solid #dee2e6;
             padding: 0.75rem 1.5rem;
             display: flex;
@@ -80,15 +115,16 @@
             position: sticky;
             top: 0;
             z-index: 10;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .navbar-left h5 {
             margin: 0;
             font-weight: 600;
+            font-size: 1.25rem;
             color: #343a40;
         }
 
-        /* Avatar (like Gmail) */
         .navbar-right {
             display: flex;
             align-items: center;
@@ -96,21 +132,20 @@
         }
 
             .navbar-right .avatar {
-                width: 40px;
-                height: 40px;
+                width: 45px;
+                height: 45px;
                 border-radius: 50%;
-                overflow: hidden;
-                border: 2px solid #0d6efd;
+                background-color: #0d6efd;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                font-size: 1.1rem;
             }
 
-                .navbar-right .avatar img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-
             .navbar-right span {
-                font-weight: 500;
+                font-weight: 600;
                 color: #212529;
             }
 
@@ -118,14 +153,16 @@
         .content {
             padding: 2rem;
             flex-grow: 1;
-            background-color: #f8f9fa;
+            background-color: #f1f6f9;
         }
     </style>
 </head>
 <body>
     <!-- Sidebar -->
     <div class="sidebar">
-        <h3><i class="bi bi-person-badge me-2"></i>Voter Panel</h3>
+        <h3>
+            <i class="bi bi-ballot-check"></i> Votium
+        </h3>
         <a asp-controller="Voter" asp-action="VoterDashboard" class="@(ViewData["Title"]?.ToString() == "Dashboard" ? "active" : "")">
             <i class="bi bi-speedometer2"></i> Dashboard
         </a>
@@ -148,10 +185,8 @@
                 <h5>@ViewData["Title"]</h5>
             </div>
             <div class="navbar-right">
-                <div class="avatar">
-                    <img src="~/images/vote1.jpg" alt="User Avatar" />
-                </div>
-                <span>@User.Identity?.Name</span>
+                <div class="avatar">@initials</div>
+                <span>@fullName</span>
             </div>
         </div>
 
@@ -162,5 +197,8 @@
     </div>
 
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Optional page-specific scripts -->
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

@@ -4,6 +4,69 @@
 }
 @model VotingSystem.Models.AdminDashboardViewModel
 
+<style>
+    /* Gradient Blue Cards */
+    .dashboard-card {
+        border: none;
+        border-radius: 1rem;
+        color: white;
+        background: linear-gradient(135deg, #007bff, #00c6ff);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+        .dashboard-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .dashboard-card h2,
+        .dashboard-card h6,
+        .dashboard-card small {
+            color: white;
+        }
+
+        .dashboard-card .fs-3 i {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+    /* Voting Summary Table */
+    .dashboard-table thead {
+        background: linear-gradient(135deg, #007bff, #00c6ff);
+        color: white;
+        font-weight: 600;
+    }
+
+    .dashboard-table tbody tr:hover {
+        background-color: rgba(0, 123, 255, 0.1);
+    }
+
+    .badge-primary {
+        background: linear-gradient(135deg, #0056b3, #00c6ff);
+        color: white;
+        font-weight: 600;
+    }
+
+    .badge-secondary {
+        background: rgba(255, 255, 255, 0.3);
+        color: white;
+    }
+
+    /* Recent Activity Cards */
+    .recent-card {
+        border-radius: 1rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+    }
+
+        .recent-card .list-group-item {
+            border: none;
+            border-radius: 0.5rem;
+            margin-bottom: 8px;
+            background-color: rgba(0, 123, 255, 0.05);
+        }
+</style>
+
 <div class="container-fluid py-4">
 
     <!-- ===== Top Bar (Admin Info) ===== -->
@@ -15,7 +78,6 @@
             <p class="text-muted mb-0 small">Monitor real-time election performance and user activity</p>
         </div>
 
-        <!-- Gmail-style Admin Avatar -->
         <div class="d-flex align-items-center">
             <div class="dropdown">
                 <button class="btn border-0 bg-transparent dropdown-toggle d-flex align-items-center" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,45 +102,44 @@
         </div>
     </div>
 
-
     <!-- ===== Summary Cards ===== -->
     <div class="row g-4 mb-4">
         <div class="col-lg-3 col-md-6">
-            <div class="card shadow-sm border-0 rounded-4 text-center p-4 bg-white">
-                <div class="text-primary fs-3 mb-2"><i class="bi bi-people-fill"></i></div>
-                <h6 class="text-muted">Registered Voters</h6>
-                <h2 class="fw-bold text-dark">@Model.TotalVoters</h2>
+            <div class="dashboard-card text-center p-4">
+                <div class="fs-3 mb-2"><i class="bi bi-people-fill"></i></div>
+                <h6>Registered Voters</h6>
+                <h2 class="fw-bold">@Model.TotalVoters</h2>
             </div>
         </div>
 
         <div class="col-lg-3 col-md-6">
-            <div class="card shadow-sm border-0 rounded-4 text-center p-4 bg-white">
-                <div class="text-success fs-3 mb-2"><i class="bi bi-check2-square"></i></div>
-                <h6 class="text-muted">Votes Cast</h6>
-                <h2 class="fw-bold text-success">@Model.TotalVotesCast</h2>
-                <small class="text-muted">Updated automatically</small>
+            <div class="dashboard-card text-center p-4">
+                <div class="fs-3 mb-2"><i class="bi bi-check2-square"></i></div>
+                <h6>Votes Cast</h6>
+                <h2 class="fw-bold">@Model.TotalVotesCast</h2>
+                <small>Updated automatically</small>
             </div>
         </div>
 
         <div class="col-lg-3 col-md-6">
-            <div class="card shadow-sm border-0 rounded-4 text-center p-4 bg-white">
-                <div class="text-primary fs-3 mb-2"><i class="bi bi-briefcase-fill"></i></div>
-                <h6 class="text-muted">Positions Available</h6>
-                <h2 class="fw-bold text-primary">@Model.TotalPositions</h2>
+            <div class="dashboard-card text-center p-4">
+                <div class="fs-3 mb-2"><i class="bi bi-briefcase-fill"></i></div>
+                <h6>Positions Available</h6>
+                <h2 class="fw-bold">@Model.TotalPositions</h2>
             </div>
         </div>
 
         <div class="col-lg-3 col-md-6">
-            <div class="card shadow-sm border-0 rounded-4 text-center p-4 bg-white">
-                <div class="text-info fs-3 mb-2"><i class="bi bi-bar-chart-fill"></i></div>
-                <h6 class="text-muted">Voting Progress</h6>
+            <div class="dashboard-card text-center p-4">
+                <div class="fs-3 mb-2"><i class="bi bi-bar-chart-fill"></i></div>
+                <h6>Voting Progress</h6>
                 <div class="progress my-2" style="height: 10px;">
-                    <div class="progress-bar bg-info" role="progressbar"
+                    <div class="progress-bar bg-white" role="progressbar"
                          style="width: @Model.VotingProgress%;"
                          aria-valuenow="@Model.VotingProgress"
                          aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <small class="fw-semibold text-dark">@Model.VotingProgress% of voters have voted</small>
+                <small class="fw-semibold">@Model.VotingProgress% of voters have voted</small>
             </div>
         </div>
     </div>
@@ -92,9 +153,9 @@
                         <i class="bi bi-graph-up-arrow me-2 text-primary"></i>Voting Summary by Position
                     </h4>
                     <div class="table-responsive">
-                        <table class="table align-middle table-hover">
-                            <thead class="table-light">
-                                <tr class="text-secondary">
+                        <table class="table align-middle table-hover dashboard-table">
+                            <thead>
+                                <tr>
                                     <th>Position</th>
                                     <th>Candidate</th>
                                     <th>Votes</th>
@@ -114,11 +175,11 @@
                                             <td>
                                                 @if (candidate.Votes == group.Max(c => c.Votes) && candidate.Votes > 0)
                                                 {
-                                                    <span class="badge bg-primary"><i class="bi bi-trophy-fill me-1"></i> Leading</span>
+                                                    <span class="badge badge-primary"><i class="bi bi-trophy-fill me-1"></i> Leading</span>
                                                 }
                                                 else
                                                 {
-                                                    <span class="badge bg-secondary">In Progress</span>
+                                                    <span class="badge badge-secondary">In Progress</span>
                                                 }
                                             </td>
                                         </tr>
@@ -134,7 +195,7 @@
 
         <!-- ===== Recent Activity / Logs ===== -->
         <div class="col-lg-4">
-            <div class="card shadow-sm border-0 rounded-4 h-100">
+            <div class="recent-card card shadow-sm border-0 rounded-4 h-100">
                 <div class="card-body">
                     <h4 class="fw-semibold text-secondary mb-3">
                         <i class="bi bi-clock-history me-2 text-primary"></i>Recent User Activity
@@ -145,15 +206,15 @@
                         <div class="list-group list-group-flush">
                             @foreach (var log in Model.RecentLogs.OrderByDescending(l => l.Timestamp).Take(6))
                             {
-                                <div class="list-group-item border-0 d-flex align-items-center justify-content-between px-0">
+                                <div class="list-group-item d-flex align-items-center justify-content-between px-0">
                                     <div class="d-flex align-items-center">
                                         <div class="me-3">
                                             <i class="bi bi-person-circle fs-4 text-primary"></i>
                                         </div>
                                         <div>
-                                            <strong class="text-dark">@log.VoterUsername</strong>
-                                            <div class="small text-muted">
-                                                <span class="badge bg-success bg-opacity-75">
+                                            <strong>@log.VoterUsername</strong>
+                                            <div class="small text-white-50">
+                                                <span class="badge badge-primary">
                                                     <i class="bi bi-box-arrow-in-right me-1"></i> Signed in
                                                 </span>
                                                 — @log.Action

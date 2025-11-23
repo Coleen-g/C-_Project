@@ -7,20 +7,22 @@ namespace VotingSystem.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        // Username is required
+        [Required(ErrorMessage = "Username is required.")]
         public string Username { get; set; }
 
-        [Required]
+        // Password is required when creating a voter
+        [Required(ErrorMessage = "Password is required.")]
         public string Password { get; set; }
 
         [Required]
         public string Role { get; set; }
 
-        // ✅ Add this property
-        [Required]
+        // FullName is required
+        [Required(ErrorMessage = "Full Name is required.")]
         public string FullName { get; set; }
 
-        // 🔹 One-to-one relationship with Voter
+        // Navigation property
         public Voter Voter { get; set; }
     }
 }

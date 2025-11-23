@@ -11,7 +11,7 @@ namespace VotingSystem.Models
         [Required]
         public string FullName { get; set; }
 
-        public bool HasVoted { get; set; } = false;
+        public bool HasVoted { get; set; }
 
         public string VoterCode { get; set; }
 

@@ -5,24 +5,77 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - VotingSystem</title>
+    <title>@ViewData["Title"] - Votium</title>
 
     <!-- ✅ Bootstrap & Icons -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 
-    <!-- ✅ Custom Styles -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <style>
+        /* ===== NAVBAR STYLES ===== */
+        .navbar {
+            background: linear-gradient(135deg, #007bff, #00c6ff);
+        }
+
+            .navbar .navbar-brand {
+                font-weight: 700;
+                font-size: 1.6rem;
+                color: white !important;
+            }
+
+                .navbar .navbar-brand i {
+                    font-size: 1.5rem;
+                    margin-right: 0.4rem;
+                }
+
+            .navbar .nav-link {
+                font-size: 1.2rem;
+                font-weight: 600;
+                color: white !important;
+                transition: all 0.3s ease;
+            }
+
+                .navbar .nav-link:hover {
+                    color: #ffd700 !important;
+                    text-decoration: underline;
+                    transform: scale(1.05);
+                }
+
+            .navbar .btn-primary, .navbar .btn-outline-primary {
+                border-radius: 50px;
+                font-weight: 600;
+                font-size: 1rem;
+                transition: all 0.3s ease;
+            }
+
+                .navbar .btn-primary:hover {
+                    background-color: #003d7a;
+                    transform: scale(1.05);
+                }
+
+                .navbar .btn-outline-primary:hover {
+                    background-color: rgba(255,255,255,0.2);
+                    color: white;
+                    transform: scale(1.05);
+                }
+
+            .navbar .btn + .btn {
+                margin-left: 0.5rem;
+            }
+    </style>
 </head>
 <body>
     <!-- ✅ NAVBAR -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top">
             <div class="container-fluid">
-                <!-- Brand -->
-                <a class="navbar-brand fw-bold text-primary" asp-controller="Home" asp-action="Index">
-                    <i class="bi bi-check2-square me-2"></i>VotingSystem
+                <!-- Brand with Voting Icon -->
+                <a class="navbar-brand d-flex align-items-center" asp-controller="Home" asp-action="Index">
+                    <i class="fa-solid fa-vote-yea"></i> Votium
                 </a>
 
                 <!-- Mobile Toggle -->
@@ -43,21 +96,21 @@
                     <ul class="navbar-nav">
                         @if (Context.Session.GetString("Username") == null)
                         {
-                            <li class="nav-item me-2">
+                            <li class="nav-item">
                                 <a asp-controller="Home" asp-action="Login" class="btn btn-outline-primary px-4 py-2">
-                                    <i class="bi bi-box-arrow-in-right me-1"></i>Login
+                                    <i class="fa-solid fa-right-to-bracket me-1"></i>Login
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a asp-controller="Home" asp-action="Register" class="btn btn-primary px-4 py-2">
-                                    <i class="bi bi-person-plus me-1"></i>Register
+                                    <i class="fa-solid fa-user-plus me-1"></i>Register
                                 </a>
                             </li>
                         }
                         else
                         {
                             <li class="nav-item">
-                                <span class="nav-link">Hi, @Context.Session.GetString("Username")!</span>
+                                <span class="nav-link fw-bold">Hi, @Context.Session.GetString("Username")!</span>
                             </li>
                         }
                     </ul>
@@ -76,7 +129,7 @@
         <div class="container text-center">
             <div class="row align-items-center">
                 <div class="col-md-6 text-md-start">
-                    <span class="fw-bold text-primary">VotingSystem</span> © @DateTime.Now.Year - All Rights Reserved
+                    <span class="fw-bold text-primary">Votium</span> © @DateTime.Now.Year - All Rights Reserved
                 </div>
                 <div class="col-md-6 text-md-end">
                     <a href="#" class="text-secondary me-3"><i class="bi bi-facebook"></i></a>
